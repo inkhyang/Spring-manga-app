@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Main-page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://glavikrestyanam.site/css/app.css" rel="stylesheet">
+    <link href="https://glavikrestyanam.site/css/dark-mode.css" rel="stylesheet">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body id="body" class="dark-mode">
+    <header th:insert="blocks/header :: header"></header>
+    <main class="py-4">
+        <div class="shadow pt-1 mt-n4">
+            <div class="container">
+                <div class="d-flex">
+                    <div class="mx-auto">
+                        <h2>Manga list</h2>
+                    </div>
+                    <div>
+                        <form th:action="'/manga/add'" method="get">
+                            <button class="btn btn-success" type="submit">new title</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-cols-3 row-cols-sm-4 row-cols-lg-5 row-cols-xl-6" >
+                <div class="p-2 position-relative" th:each="el : ${posts}">
+                    <a th:href="'/manga/' + ${el.title}">
+                        <div class="c-card-box-150">
+                            <img class="rounded c-image object-0" th:src="'/images/' + ${el.image}" alt="1">
+                        </div>
+                        <div class="card-text">
+                            <h5 class="c-name" th:text="${el.title}"/>
+                            <p class="c-genre"></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New chapter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"  />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://glavikrestyanam.site/css/app.css" rel="stylesheet">
+    <link href="https://glavikrestyanam.site/css/dark-mode.css" rel="stylesheet">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body id="body" class="dark-mode">
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5 mb-5">
+    <h1>New chapter</h1>
+    <form method="Post" enctype="multipart/form-data">
+        <input type="text" name="chapterId" placeholder="chapter number" class="form-control"> <br>
+        <div>
+            <input type="file" name="files" id="file-field" multiple />
+        </div>
+        <div id="img-container">
+            <ul id="img-list"></ul>
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+    </form>
+</div>
+</body>
+</html>

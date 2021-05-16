@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manga edit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"  />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://glavikrestyanam.site/css/app.css" rel="stylesheet">
+    <link href="https://glavikrestyanam.site/css/dark-mode.css" rel="stylesheet">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body id="body" class="dark-mode">
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Editor</h1>
+    <div >
+        <form method="Post" enctype="multipart/form-data">
+            <div th:each="imgEl : ${ch_EditImg}">
+                <th scope="row">
+                    <img alt="" th:src="'/images/' + ${imgEl}">
+                </th>
+            </div>
+            <div th:each="el : ${ch_Edit}">
+            <input type="file" name="files" id="file-field" multiple> <br>
+            <input type="text" th:value="${el.chapterId}" name="newChapterId" placeholder="Chapter id" class="form-control"> <br>
+            </div>
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

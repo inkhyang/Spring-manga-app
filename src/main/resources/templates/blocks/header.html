@@ -1,0 +1,42 @@
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">Abysm inc.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li>
+                        <a class="nav-link" th:href="'/manga'"><span>Catalogue</span></a>
+                    </li>
+                    <li>
+                        <a class="nav-link" th:href="'/user/bookmarks'">Bookmarks</a>
+                    </li>
+                </ul>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <li>
+                        <form method="get" action="#">
+                            <div class="position-relative mr-2">
+                                <input type="text" class="form-control search_input" id="query" name="query" placeholder="Search...">
+                            </div>
+                        </form>
+                    </li>
+                    <div class="container unauthenticated">
+                        <a href="/oauth2/authorization/google">SignIn with google</a>
+                    </div>
+                    <div class="container authenticated" style="display:none">
+                        Logged in as: <span id="user"></span>
+                    </div>
+                    <div class="container authenticated">
+                        Logged in as: <span id="user"></span>
+                        <div>
+                            <button onClick="logout()" class="btn btn-primary">Logout</button>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
